@@ -1,13 +1,28 @@
 :root {
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
-    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
-    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
+    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+
+  --font-heading: 'Baloo Bhaijaan', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+  --primary-100: #0165b1;
+  --primary-200: #1a1658;
+  --primary-300: #101039;
+  --secondary-100: #85d4cf;
+  --secondary-100: #cff2ef;
+  --accent-100: #f7a331;
+  --foreground-100: #050515;
+  --foreground-200: #000000;
+  --background-100: #fdfdfd;
+  --background-200: #ffffff;
 
   --primary-glow: conic-gradient(
     from 180deg at 50% 50%,
@@ -98,6 +113,50 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+h1 {
+  font-size: 6.25rem;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+.body-100 {
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+.body-200 {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.body-300 {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.bold {
+  font-weight: 700;
+}
+.semi-bold {
+  font-weight: 600;
 }
 
 @media (prefers-color-scheme: dark) {
