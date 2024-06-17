@@ -15,14 +15,18 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 
+  --primary: #0165b1;
   --primary-100: #0165b1;
   --primary-200: #1a1658;
   --primary-300: #101039;
   --secondary-100: #85d4cf;
-  --secondary-100: #cff2ef;
+  --secondary-200: #cff2ef;
+  --accent: #f7a331;
   --accent-100: #f7a331;
+  --foreground: #050515;
   --foreground-100: #050515;
   --foreground-200: #000000;
+  --background: #fdfdfd;
   --background-100: #fdfdfd;
   --background-200: #ffffff;
 
@@ -84,7 +88,7 @@ a {
   text-decoration: none;
 }
 
-h1 {
+/* h1 {
   font-size: 6.25rem;
   font-weight: 400;
 }
@@ -102,6 +106,10 @@ h3 {
 h4 {
   font-size: 1.5rem;
   font-weight: 700;
+} */
+
+button {
+  all: unset;
 }
 
 p {

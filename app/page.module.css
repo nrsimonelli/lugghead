@@ -6,6 +6,15 @@
   background: lightblue;
 }
 
+.contact {
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  background: var(--accent);
+  text-transform: capitalize;
+  padding: 0.5rem 2rem;
+}
+
 .nav {
   display: flex;
   align-items: center;
