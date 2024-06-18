@@ -10,9 +10,14 @@ export default function Home() {
         {/* Nav */}
         <div className={styles.nav}>
           <div>Logo</div>
-          <div className={'contact'}>
-            <a href='mailto:1842luggheadlazerlab@gmail.com'>Contact us</a>
-          </div>
+          {/* <div className={'contact'}> */}
+          <a
+            className={styles.contact}
+            href='mailto:1842luggheadlazerlab@gmail.com'
+          >
+            Contact Us
+          </a>
+          {/* </div> */}
         </div>
         {/* Hero Content */}
         <div className={styles.hero}>
@@ -58,7 +63,12 @@ export default function Home() {
             Contact us today and we can help you bring your custom project to
             life!
           </p>
-          <button className={styles.contact}>Contact us</button>
+          <a
+            className={styles.contact}
+            href='mailto:1842luggheadlazerlab@gmail.com'
+          >
+            Contact Us
+          </a>
         </div>
         <p>
           Personalized Gifts, company Merchandise, Sport Team Fundraisers &
@@ -88,7 +98,12 @@ export default function Home() {
             Contact us today for more information or to get a quote on your
             latest project!
           </p>
-          <button className={styles.contact}>contact us</button>
+          <a
+            className={styles.contact}
+            href='mailto:1842luggheadlazerlab@gmail.com'
+          >
+            Contact Us
+          </a>{' '}
         </div>
       </section>
 
@@ -108,7 +123,12 @@ export default function Home() {
           </div>
           <div>
             <p>Reach out to us to get started!</p>
-            <button className={styles.contact}>Contact us</button>
+            <a
+              className={styles.contact}
+              href='mailto:1842luggheadlazerlab@gmail.com'
+            >
+              Contact Us
+            </a>{' '}
           </div>
         </div>
       </section>
