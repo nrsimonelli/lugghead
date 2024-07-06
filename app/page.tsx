@@ -6,7 +6,7 @@ import X from './x'
 export default function Home() {
   return (
     <main className={styles.main}>
-      <section>
+      <section className={styles.heroSection}>
         {/* Nav */}
         <div className={styles.nav}>
           <div>Logo</div>
@@ -21,19 +21,23 @@ export default function Home() {
         </div>
         {/* Hero Content */}
         <div className={styles.hero}>
-          <div>
+          <div className={styles.heroContent}>
             <p className={styles.overline}>
               Fundraise + Celebrate + Commemorate
             </p>
-            <p className={styles.h1}>Welcome to Lugghead’s Lazer Lab</p>
+            <p className={styles.heroHeading}>
+              Welcome to Lugghead’s Lazer Lab
+            </p>
           </div>
-          <div>Image</div>
-          <div>Yellow Logo / stamp</div>
+          <div className={styles.yellowSticker}>
+            <div>Image</div>
+            <div>Yellow Logo / stamp</div>
+          </div>
         </div>
       </section>
 
       <section>
-        <div>
+        <div className={styles.paragraph}>
           <p className={styles.overline}>Glass + Wood + Metal + Leather</p>
           <p className={styles.h2}>Laser engraving services</p>
           <p>
