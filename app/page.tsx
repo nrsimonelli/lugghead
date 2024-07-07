@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import Image from 'next/image'
 import styles from './page.module.css'
 import glass from './assets/glass.svg'
@@ -13,21 +16,78 @@ import product_5 from './assets/product_5.png'
 import product_6 from './assets/product_6.png'
 import product_7 from './assets/product_7.png'
 import product_8 from './assets/product_8.png'
-
-import X from './x'
+import Footerbackground from './assets/Footerbackground.png'
 
 export default function Home() {
+  const [isOpen, setIsOpen] = React.useState(false)
+  const form = React.useRef()
+
   return (
     <main className={styles.main}>
+      {isOpen && (
+        <div className={styles.overlay} onClick={() => setIsOpen(false)} />
+      )}
+      {isOpen && (
+        <form
+          ref={form}
+          onSubmit={() => console.log('submit')}
+          // onSubmit={handleSubmit(onSubmit)}
+          className={styles.formRoot}
+        >
+          <fieldset className={styles.fieldset}>
+            <label htmlFor='full-name' className={styles.fieldsetLabel}>
+              Full Name
+            </label>
+            <input
+              id='full-name'
+              type='text'
+              name='name'
+              className={styles.fieldsetInput}
+              // data-valid={!errors?.name}
+              placeholder='First and Last'
+              // {...register('name', { required: true, maxLength: 70 })}
+            />
+          </fieldset>
+          <fieldset className={styles.fieldset}>
+            <label htmlFor='email-address' className={styles.fieldsetLabel}>
+              Email Address
+            </label>
+            <input
+              id='eamil-address'
+              type='email'
+              name='email'
+              className={styles.fieldsetInput}
+              // data-valid={!errors?.email}
+              placeholder='email@domain.tld'
+              // {...register('email', {
+              //   required: true,
+              //   pattern: /^\S+@\S+$/i,
+              // })}
+            />
+          </fieldset>
+          <fieldset className={styles.fieldset}>
+            <label htmlFor='message' className={styles.fieldsetLabelTextArea}>
+              Message
+            </label>
+            <textarea
+              id='message'
+              name='message'
+              // data-valid={!errors?.message}
+              className={styles.fieldsetInputTextArea}
+              placeholder='Your message...'
+              // {...register('message', { required: true, maxLength: 3000 })}
+            />
+          </fieldset>
+          <input type='submit' value='Send' className={styles.submitButton} />
+        </form>
+      )}
+
       <div className={styles.nav}>
         <div>Logo</div>
         {/* <div className={'contact'}> */}
-        <a
-          className={styles.contact}
-          href='mailto:1842luggheadlazerlab@gmail.com'
-        >
+        <button className={styles.contact} onClick={() => setIsOpen(true)}>
           Contact Us
-        </a>
+        </button>
         {/* </div> */}
       </div>
       <section className={styles.heroSection}>
@@ -135,12 +195,12 @@ export default function Home() {
               life!
             </p>
             <div>
-              <a
+              <button
                 className={styles.contact}
-                href='mailto:1842luggheadlazerlab@gmail.com'
+                onClick={() => setIsOpen(true)}
               >
                 Contact Us
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -242,12 +302,12 @@ export default function Home() {
               latest project!
             </p>
             <div>
-              <a
+              <button
                 className={styles.contact}
-                href='mailto:1842luggheadlazerlab@gmail.com'
+                onClick={() => setIsOpen(true)}
               >
                 Contact Us
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -267,20 +327,28 @@ export default function Home() {
               details of your project and provide a quote.
             </p>
           </div>
-          <div className={styles.contactBox}>
+          <div className={styles.contactBoxThree}>
             <p className={styles.contactText}>
               Contact us today and we can help you bring your custom project to
               life!
             </p>
             <div>
-              <a
+              <button
                 className={styles.contact}
-                href='mailto:1842luggheadlazerlab@gmail.com'
+                onClick={() => setIsOpen(true)}
               >
                 Contact Us
-              </a>
+              </button>
             </div>
           </div>
+        </div>
+        <div className={styles.floatingLugghead}>
+          <Image
+            src={Footerbackground}
+            alt={
+              'Black lab "Lugghead" sitting tall and looking straight ahead.'
+            }
+          />
         </div>
       </section>
 
