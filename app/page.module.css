@@ -113,10 +113,12 @@
 }
 .spacerParagraphText {
   color: var(--accent);
-  /* font-size: 2rem; */
-  height: 155px;
-  text-align: center;
+  font-family: var(--font-heading);
+  font-size: 2rem;
   font-weight: 700;
+  height: 210px;
+  text-align: center;
+  width: 100%;
 }
 .squiggle {
   position: absolute;
@@ -133,7 +135,6 @@
   bottom: -120px;
   left: 1rem;
 }
-
 .heroSection {
   min-height: 100vh;
   background-image: url('./assets/Herobackground.png');
@@ -355,6 +356,41 @@
   cursor: pointer;
 }
 
+.footer {
+  width: 100%;
+  background: var(--background);
+  padding-bottom: 2rem;
+}
+.footerContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1200px;
+}
+.footerImage {
+}
+.footerEmail {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.footerButton {
+}
+.copywrite {
+  font-size: 0.8rem;
+  margin-right: auto;
+  margin-left: auto;
+  width: max-content;
+  /* color: var(--primary-500); */
+}
+
 @keyframes overlay-show {
   0% {
     opacity: 0;
@@ -389,6 +425,7 @@
   .h2 {
     font-size: 2rem;
   }
+
   .yellowSticker {
     background: yellow;
     margin: 0 0.5rem;
@@ -418,6 +455,13 @@
   }
   .calloutBox {
     padding: 3.75rem 2rem;
+  }
+}
+
+@media (max-width: 840px) {
+  .footerContent {
+    flex-direction: column;
+    gap: 2rem;
   }
 }
 

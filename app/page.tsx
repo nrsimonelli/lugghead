@@ -17,6 +17,9 @@ import product_6 from './assets/product_6.png'
 import product_7 from './assets/product_7.png'
 import product_8 from './assets/product_8.png'
 import Footerbackground from './assets/Footerbackground.png'
+import Footerlogo from './assets/Footerlogo.png'
+import Fb from './assets/Fb.png'
+import Headerlogo from './assets/Headerlogo.png'
 
 export default function Home() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -83,7 +86,9 @@ export default function Home() {
       )}
 
       <div className={styles.nav}>
-        <div>Logo</div>
+        <div>
+          <Image src={Headerlogo} alt={'Lugghead company logo'} />
+        </div>
         {/* <div className={'contact'}> */}
         <button className={styles.contact} onClick={() => setIsOpen(true)}>
           Contact Us
@@ -102,10 +107,11 @@ export default function Home() {
               Welcome to Lugghead’s Lazer Lab
             </p>
           </div>
-          <div className={styles.yellowSticker}>
+          {/* <div className={styles.yellowSticker}>
             <div>Image</div>
             <div>Yellow Logo / stamp</div>
-          </div>
+            <Image src={LogoSeal} alt={'Lugghead stamp'} />
+          </div> */}
         </div>
       </section>
 
@@ -377,13 +383,42 @@ export default function Home() {
           </div>
         </div>
       </section> */}
-      <footer>
-        <div>
-          <div>Logo</div>
-          <div>email</div>
-          <div>contact us</div>
+      <footer className={styles.footer}>
+        <div className={styles.footerContent}>
+          <div className={styles.footerImage}>
+            <Image
+              src={Footerlogo}
+              alt={'Lugghead company logo'}
+              // width={100}
+              // height={100}
+            />
+          </div>
+          <div className={styles.footerEmail}>
+            <p className='bold'>Email:</p>
+            <a href='mailto:1842luggheadlazerlab@gmail.com'>
+              1842luggheadlazerlab@gmail.com
+            </a>
+          </div>
+          <div>
+            {/* a tag properties to go to href in new tab */}
+
+            <a
+              href='https://www.facebook.com/1842LuggHeadLazerLab/'
+              target='_blank'
+            >
+              <Image src={Fb} alt={'Facebook logo'} />
+            </a>
+          </div>
+          <div className={styles.footerButton}>
+            <button className={styles.contact} onClick={() => setIsOpen(true)}>
+              Contact Us
+            </button>
+          </div>
         </div>
-        <p>copyright</p>
+        {/* copyright current year */}
+        <p className={styles.copywrite}>
+          &copy; {new Date().getFullYear()} Lugghead’s Lazer Lab
+        </p>
       </footer>
     </main>
   )
