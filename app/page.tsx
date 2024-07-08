@@ -20,6 +20,7 @@ import Footerbackground from './assets/Footerbackground.png'
 import Footerlogo from './assets/Footerlogo.png'
 import Fb from './assets/Fb.png'
 import Headerlogo from './assets/Headerlogo.png'
+import Seal from './assets/Seal.png'
 
 export default function Home() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -107,11 +108,11 @@ export default function Home() {
               Welcome to Lugghead’s Lazer Lab
             </p>
           </div>
-          {/* <div className={styles.yellowSticker}>
-            <div>Image</div>
-            <div>Yellow Logo / stamp</div>
-            <Image src={LogoSeal} alt={'Lugghead stamp'} />
-          </div> */}
+          <Image
+            className={styles.yellowSticker}
+            src={Seal}
+            alt={'Lugghead stamp'}
+          />
         </div>
       </section>
 
