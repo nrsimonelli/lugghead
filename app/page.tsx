@@ -1,8 +1,9 @@
 'use client'
 
-import React from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import styles from './page.module.css'
+
 import glass from './assets/glass.svg'
 import wood from './assets/wood.svg'
 import metal from './assets/metal.svg'
@@ -21,70 +22,22 @@ import Footerlogo from './assets/Footerlogo.png'
 import Fb from './assets/Fb.png'
 import Headerlogo from './assets/Headerlogo.png'
 import Seal from './assets/Seal.png'
+import { EmailForm } from './components/email-form'
 
 export default function Home() {
-  const [isOpen, setIsOpen] = React.useState(false)
-  const form = React.useRef()
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleClose = () => {
+    setIsOpen(false)
+  }
 
   return (
     <main className={styles.main}>
       {isOpen && (
         <div className={styles.overlay} onClick={() => setIsOpen(false)} />
       )}
-      {isOpen && (
-        <form
-          ref={form}
-          onSubmit={() => console.log('submit')}
-          // onSubmit={handleSubmit(onSubmit)}
-          className={styles.formRoot}
-        >
-          <fieldset className={styles.fieldset}>
-            <label htmlFor='full-name' className={styles.fieldsetLabel}>
-              Full Name
-            </label>
-            <input
-              id='full-name'
-              type='text'
-              name='name'
-              className={styles.fieldsetInput}
-              // data-valid={!errors?.name}
-              placeholder='First and Last'
-              // {...register('name', { required: true, maxLength: 70 })}
-            />
-          </fieldset>
-          <fieldset className={styles.fieldset}>
-            <label htmlFor='email-address' className={styles.fieldsetLabel}>
-              Email Address
-            </label>
-            <input
-              id='eamil-address'
-              type='email'
-              name='email'
-              className={styles.fieldsetInput}
-              // data-valid={!errors?.email}
-              placeholder='email@domain.tld'
-              // {...register('email', {
-              //   required: true,
-              //   pattern: /^\S+@\S+$/i,
-              // })}
-            />
-          </fieldset>
-          <fieldset className={styles.fieldset}>
-            <label htmlFor='message' className={styles.fieldsetLabelTextArea}>
-              Message
-            </label>
-            <textarea
-              id='message'
-              name='message'
-              // data-valid={!errors?.message}
-              className={styles.fieldsetInputTextArea}
-              placeholder='Your message...'
-              // {...register('message', { required: true, maxLength: 3000 })}
-            />
-          </fieldset>
-          <input type='submit' value='Send' className={styles.submitButton} />
-        </form>
-      )}
+
+      {isOpen && <EmailForm handleClose={handleClose} />}
 
       <div className={styles.nav}>
         <div>
@@ -105,7 +58,7 @@ export default function Home() {
               Fundraise + Celebrate + Commemorate
             </p>
             <p className={styles.heroHeading}>
-              Welcome to Lugghead’s Lazer Lab
+              Welcome To Lugghead’s Lazer Lab
             </p>
           </div>
           <Image
