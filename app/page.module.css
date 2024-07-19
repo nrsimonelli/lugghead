@@ -367,6 +367,10 @@
   padding: 0.5rem 2rem;
   cursor: pointer;
 }
+.submitButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
 
 .footer {
   width: 100%;

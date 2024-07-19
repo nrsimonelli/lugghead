@@ -42,22 +42,22 @@ export const EmailForm = ({ handleClose }: { handleClose: () => void }) => {
 
       const res = await response.json()
 
-      if (res) {
+      if (!res || res.error) {
+        toast({
+          title: 'Something went wrong.',
+          description:
+            'There was a problem with your request, please try again later.',
+        })
+      } else {
         toast({
           description: 'Your message has been sent!',
         })
         reset()
         handleClose()
-      } else {
-        toast({
-          title: 'Uh oh! Something went wrong.',
-          description:
-            'There was a problem with your request, please try again later.',
-        })
       }
     } catch (error) {
       toast({
-        title: 'Uh oh! Something went wrong.',
+        title: 'Something went wrong.',
         description:
           'There was a problem with your request, please try again later.',
       })
