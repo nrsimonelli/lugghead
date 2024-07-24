@@ -3,9 +3,10 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
 import { useForm } from 'react-hook-form'
-import { useRef, useState } from 'react'
+import { ReactNode, useRef, useState } from 'react'
 import styles from '../page.module.css'
 import { useToast } from './use-toast'
+import { Cross2Icon } from '@radix-ui/react-icons'
 
 const formSchema = z.object({
   name: z.string().min(1, { message: 'Required' }).max(70),
@@ -14,7 +15,22 @@ const formSchema = z.object({
 })
 export type formSchemaType = z.infer<typeof formSchema>
 
-export const EmailForm = ({ handleClose }: { handleClose: () => void }) => {
+export const FormContainer = ({
+  handleClose,
+  children,
+}: {
+  handleClose: () => void
+  children: ReactNode
+}) => {
+  return (
+    <div className={styles.containerRoot}>
+      <Cross2Icon className={styles.crossIcon} onClick={handleClose} />
+      {children}
+    </div>
+  )
+}
+
+export const EmailForm = ({ handleSuccess }: { handleSuccess: () => void }) => {
   const form = useRef<HTMLFormElement | null>(null)
   const { toast } = useToast()
   const [isSending, setIsSending] = useState(false)
@@ -49,11 +65,8 @@ export const EmailForm = ({ handleClose }: { handleClose: () => void }) => {
             'There was a problem with your request, please try again later.',
         })
       } else {
-        toast({
-          description: 'Your message has been sent!',
-        })
         reset()
-        handleClose()
+        handleSuccess()
       }
     } catch (error) {
       toast({

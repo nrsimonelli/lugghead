@@ -22,12 +22,16 @@ import Footerlogo from './assets/Footerlogo.png'
 import Fb from './assets/Fb.png'
 import Headerlogo from './assets/Headerlogo.png'
 import Seal from './assets/Seal.png'
-import { EmailForm } from './components/email-form'
+import { EmailForm, FormContainer } from './components/email-form'
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false)
+  const [showThankYouScreen, setShowThankYouScreen] = useState(false)
 
   const handleClose = () => {
+    if (showThankYouScreen) {
+      setShowThankYouScreen(false)
+    }
     setIsOpen(false)
   }
 
@@ -37,7 +41,20 @@ export default function Home() {
         <div className={styles.overlay} onClick={() => setIsOpen(false)} />
       )}
 
-      {isOpen && <EmailForm handleClose={handleClose} />}
+      {isOpen && (
+        <FormContainer handleClose={handleClose}>
+          {showThankYouScreen ? (
+            <div className={styles.thankyou}>
+              <p className={styles.serviceItemTitle}>
+                Thank you for your message!
+              </p>
+              <p>We will get back to you as soon as possible.</p>
+            </div>
+          ) : (
+            <EmailForm handleSuccess={() => setShowThankYouScreen(true)} />
+          )}
+        </FormContainer>
+      )}
 
       <div className={styles.nav}>
         <div>
@@ -311,41 +328,10 @@ export default function Home() {
           />
         </div>
       </section>
-
-      {/* <section>
-        <div>
-          <div>
-            <p className={styles.h3}>Want to work with us?</p>
-            <p>
-              We can help bring your small or large custom project to life. Get
-              started by clicking the “contact us” button or by sending us an
-              email directly.
-            </p>
-            <p>
-              Once we receive your message, we will reach out to discuss the
-              details of your project and provide a quote.
-            </p>
-          </div>
-          <div>
-            <p>Reach out to us to get started!</p>
-            <a
-              className={styles.contact}
-              href='mailto:1842luggheadlazerlab@gmail.com'
-            >
-              Contact Us
-            </a>{' '}
-          </div>
-        </div>
-      </section> */}
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
           <div className={styles.footerImage}>
-            <Image
-              src={Footerlogo}
-              alt={'Lugghead company logo'}
-              // width={100}
-              // height={100}
-            />
+            <Image src={Footerlogo} alt={'Lugghead company logo'} />
           </div>
           <div className={styles.footerEmail}>
             <p className='bold'>Email:</p>
@@ -354,8 +340,6 @@ export default function Home() {
             </a>
           </div>
           <div>
-            {/* a tag properties to go to href in new tab */}
-
             <a
               href='https://www.facebook.com/1842LuggHeadLazerLab/'
               target='_blank'
